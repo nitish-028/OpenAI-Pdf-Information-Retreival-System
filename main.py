@@ -41,7 +41,7 @@ def get_vector_store(chunks):
 
 
 def get_conversation_chain(vectorstore):
-    llm = ChatOpenAI()
+    llm = ChatOpenAI(temperature=0.7)
     memory = ConversationBufferMemory(memory_key = 'chat_history',return_messages=True)
     chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
